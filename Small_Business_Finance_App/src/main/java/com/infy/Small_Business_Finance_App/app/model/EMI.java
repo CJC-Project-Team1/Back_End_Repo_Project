@@ -24,6 +24,6 @@ public class EMI
 	@OneToOne(cascade = CascadeType.ALL)
 	private sanctionedLoanDetails sanLoan;
 	
-	
+	//one to one relationship
 
 }
