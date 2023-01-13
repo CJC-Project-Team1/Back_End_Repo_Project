@@ -30,7 +30,7 @@ public class EmailController
 	{	
 		
 		try {
-			//json to java
+			//json to java file
 			ObjectMapper om=new ObjectMapper();
 			Email em=om.readValue(email, Email.class);
 			System.out.println("to=="+em.getTo());
