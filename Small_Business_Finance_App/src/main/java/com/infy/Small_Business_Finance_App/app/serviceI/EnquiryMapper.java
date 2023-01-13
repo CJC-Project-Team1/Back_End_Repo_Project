@@ -8,7 +8,6 @@ import org.mapstruct.factory.Mappers;
 import com.infy.Small_Business_Finance_App.app.dto.EnquiryDto;
 import com.infy.Small_Business_Finance_App.app.model.Enquiry;
 
-
 @Mapper
 public interface EnquiryMapper {
 	
