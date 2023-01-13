@@ -52,7 +52,7 @@ public class EnquiryServiceImpl implements EnquiryServiceI
 		}
 		else
 		{
-			throw new ExceptionById("Sorry! No Enquiry is present with tis ID.");
+			throw new ExceptionById("Sorry! No Enquiry is present with this ID.");
 		}
 		
 	}
