@@ -24,8 +24,8 @@ public class EnquiryController {
 	@Autowired
 	EnquiryServiceI esi;
 	
-	EnquiryMapper emap; 
-	 
+	EnquiryMapper emap;
+	
 	
 	@GetMapping(value = "/getEnq")
 	public String  get()
