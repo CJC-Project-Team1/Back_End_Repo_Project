@@ -1,16 +1,18 @@
 package com.infy.Small_Business_Finance_App.app.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import lombok.Data;
 
 
 
 @Data
 @Entity
-public class sanctionedLoanDetails 
+public class SanctionedLoanDetails 
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,6 +21,8 @@ public class sanctionedLoanDetails
 	private String sanctionedLoanTenure;
 	private String customerName;
 	private Integer customerId;
-	private Double emi;
+	private Double loanEmi;
+	@OneToOne(cascade = CascadeType.ALL)
+	private EMI emi;
 
 }

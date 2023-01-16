@@ -25,7 +25,7 @@ public class Enquiry {
 	private String dateOfBirth;
 	private String enquiryStatus;
 	private Long contactNo;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	private Cibil cbl;
 
 }
