@@ -19,7 +19,7 @@ public class BorrowerBankDetails
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer bankDetailsId;
 	private Long bankAccountNo;
-	private String ifcsCode;
+	private String ifscCode;
 	private String bankName;
 	private String bankBranch;
 }

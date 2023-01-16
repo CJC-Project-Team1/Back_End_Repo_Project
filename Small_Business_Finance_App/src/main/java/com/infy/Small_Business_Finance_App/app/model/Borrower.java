@@ -33,12 +33,12 @@ public class Borrower
 	private String gstNo;
 	@OneToOne
 	private BorrowerBankDetails bankDetails;
-	@OneToOne
-	private BusinessDetails businessDetails;
-	@OneToMany
-	private List<PreviousLoanDetails> loanHistory;
-	@OneToOne
-	private BorrowerDocuments borrowerDocuments;
-	@OneToOne
-	private AppliedLoan appliedLoan;
+//	@OneToOne
+//	private BusinessDetails businessDetails;
+//	@OneToMany
+//	private List<PreviousLoanDetails> loanHistory;
+//	@OneToOne
+//	private BorrowerDocuments borrowerDocuments;
+//	@OneToOne
+//	private AppliedLoan appliedLoan;
 }

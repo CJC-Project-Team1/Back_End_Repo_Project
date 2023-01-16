@@ -15,9 +15,9 @@ public class BorrowerDto
 	private String address;
 	private String documentStatus;
 	private String gstNo;
-	private AppliedLoanDto appliedLoanDto;
+//	private AppliedLoanDto appliedLoanDto;
 	private BorrowerBankDetailsDto bankDetailsDto;
-	private BorrowerDocumentsDto documentDto;
-	private BusinessDetailsDto businessDetailsDto;
-	private PreviousLoanDetailsDto loanDetailsDto;
+//	private BorrowerDocumentsDto documentDto;
+//	private BusinessDetailsDto businessDetailsDto;
+//	private PreviousLoanDetailsDto loanDetailsDto;
 }
