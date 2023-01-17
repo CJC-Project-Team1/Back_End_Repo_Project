@@ -1,11 +1,9 @@
 package com.infy.Small_Business_Finance_App.app.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +23,5 @@ public class Enquiry {
 	private String dateOfBirth;
 	private String enquiryStatus;
 	private Long contactNo;
-	@OneToOne(cascade = CascadeType.MERGE)
-	private Cibil cbl;
 
 }

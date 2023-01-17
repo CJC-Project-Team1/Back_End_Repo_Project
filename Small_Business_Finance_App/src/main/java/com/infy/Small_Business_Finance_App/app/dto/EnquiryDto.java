@@ -15,5 +15,4 @@ public class EnquiryDto {
 	private String dateOfBirth;
 	private String enquiryStatus;
 	private Long contactNo;
-	private Cibil cbl;
 }

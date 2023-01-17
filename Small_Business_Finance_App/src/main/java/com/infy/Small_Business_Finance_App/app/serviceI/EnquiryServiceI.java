@@ -14,4 +14,5 @@ public interface EnquiryServiceI {
 
 	public Enquiry updateEnquiry(int id, Enquiry e);
 
+	public List<Enquiry> getByStatus(String status);
 }

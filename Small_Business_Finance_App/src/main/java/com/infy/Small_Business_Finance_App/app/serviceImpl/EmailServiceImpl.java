@@ -29,7 +29,17 @@ public class EmailServiceImpl implements EmailServiceI
 			mhelp.setTo(em.getTo());
 			mhelp.setFrom(em.getFrom());
 			mhelp.setSubject(em.getSubject());
-			mhelp.setText(em.getText());
+			mhelp.setText("\nDear "+em.getBorrowerName()+"\nLoan Application No= "+em.getApplicationNo()+","
+					+ "\n\n Congratulations!!"
+					+"\n We are pleased to approve your home equity loan application."+","
+					+"\n The loan amount is="+em.getLoanAmount()+","
+					+"\n The term is ="+em.getTenure()+",and the annual interest rate is ="+em.getIntRate()+"."
+					+"\n Here is the generated Sanctioned letter ,"
+					+"\n Please see the Attachment for details. "
+					+ "\n Please visit branch for any Query or contact Branch Manager ."
+					+ "\n Thank You !"
+					+ "\n\n Regards,"
+					+ "\n MSME Loans");
 			mhelp.addAttachment(atchmnt.getOriginalFilename(), atchmnt);
 			jms.send(mimemsg);
 			
@@ -39,7 +49,5 @@ public class EmailServiceImpl implements EmailServiceI
 			e.printStackTrace();
 		}
 	}
-
-
 
 }

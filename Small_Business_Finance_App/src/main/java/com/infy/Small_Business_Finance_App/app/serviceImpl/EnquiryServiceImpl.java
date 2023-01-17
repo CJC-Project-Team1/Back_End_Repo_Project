@@ -64,7 +64,15 @@ public class EnquiryServiceImpl implements EnquiryServiceI
 		if(oe.isPresent())
 		{
 			Enquiry enq = oe.get();
-			enq.setEnquiryStatus(e.getEnquiryStatus());			
+			enq.setEnquiryId(e.getEnquiryId());
+			enq.setCustomerName(e.getCustomerName());
+			enq.setPanCard(e.getPanCard());
+			enq.setAdharCard(e.getAdharCard());
+			enq.setDateOfBirth(e.getDateOfBirth());
+			enq.setEmailId(e.getEmailId());
+			enq.setContactNo(e.getContactNo());
+			enq.setEnquiryStatus(e.getEnquiryStatus());	
+	//		System.out.println("status="+enq.getEnquiryStatus());
 			return er.save(enq);
 		}
 		else
@@ -73,5 +81,14 @@ public class EnquiryServiceImpl implements EnquiryServiceI
 		}
 		
 	}
+
+	@Override
+	public List<Enquiry> getByStatus(String status) 
+	{
+		List<Enquiry> LE = er.findByEnquiryStatus(status);
+		return LE;
+	}
+
+	
 
 }

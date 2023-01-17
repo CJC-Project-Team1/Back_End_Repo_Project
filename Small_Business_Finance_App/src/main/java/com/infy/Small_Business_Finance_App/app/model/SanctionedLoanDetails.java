@@ -21,7 +21,7 @@ public class SanctionedLoanDetails
 	private String sanctionedLoanTenure;
 	private String customerName;
 	private Integer customerId;
-	private Double loanEmi;
+	private Double monthlyEmi;
 	@OneToOne(cascade = CascadeType.ALL)
 	private EMI emi;
 
