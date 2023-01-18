@@ -1,7 +1,9 @@
 package com.infy.Small_Business_Finance_App.app.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,14 +33,14 @@ public class Borrower
 	private String address;
 	private String documentStatus;
 	private String gstNo;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.MERGE)
 	private BorrowerBankDetails bankDetails;
-//	@OneToOne
-//	private BusinessDetails businessDetails;
-//	@OneToMany
-//	private List<PreviousLoanDetails> loanHistory;
-//	@OneToOne
-//	private BorrowerDocuments borrowerDocuments;
-//	@OneToOne
-//	private AppliedLoan appliedLoan;
+	@OneToOne(cascade = CascadeType.MERGE)
+	private BusinessDetails businessDetails;
+	@OneToMany(cascade = CascadeType.MERGE)
+	private List<PreviousLoanDetails> loanHistory;
+	@OneToOne(cascade = CascadeType.MERGE)
+	private BorrowerDocuments borrowerDocuments;
+	@OneToOne(cascade = CascadeType.MERGE)
+	private AppliedLoan appliedLoan;
 }
