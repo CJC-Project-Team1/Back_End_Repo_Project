@@ -59,6 +59,8 @@ public class EmployeeServiceImpl implements EmployeeServiceI
 		if(oe.isPresent())
 		{
 			emp.setEmpStatus(oe.get().getEmpStatus());
+			emp.setEmployeeId(id);
+			emp.setPhoto(oe.get().getPhoto());
 			Employee e = er.save(emp);
 			return e;
 		}
