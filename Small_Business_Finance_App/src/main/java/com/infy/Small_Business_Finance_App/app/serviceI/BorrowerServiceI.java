@@ -16,4 +16,6 @@ public interface BorrowerServiceI {
 
 	public void deleteBorrower(int id);
 
+	public Borrower getBorrowerById(int id);
+
 }
