@@ -78,8 +78,18 @@ public class EmployeeController
 		return new ResponseEntity<EmployeeDto>(edto, HttpStatus.OK);
 	}
 	
-	@PutMapping(value = "/updateEmp/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@PutMapping(value = "/updateEmpPhoto/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable("id") int id, 
+			@RequestPart(value = "photo") MultipartFile photo) throws Exception, JsonProcessingException
+	{
+		
+		Employee e = esi.updateEmpPhoto(photo, id);
+		EmployeeDto edto = mapper.INSTANCE.employeeToDto(e);
+		return new ResponseEntity<EmployeeDto>(edto, HttpStatus.OK);
+	}
+	
+	@PutMapping(value = "/updateEmp/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<EmployeeDto> updateEmployeePhoto(@PathVariable("id") int id, 
 													@RequestPart(value = "empdetails") String empdetails) throws Exception, JsonProcessingException
 	{
 		ObjectMapper om = new ObjectMapper();
