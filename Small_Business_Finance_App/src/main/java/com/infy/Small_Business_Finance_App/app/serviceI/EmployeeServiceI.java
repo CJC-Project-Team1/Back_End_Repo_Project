@@ -1,6 +1,9 @@
 package com.infy.Small_Business_Finance_App.app.serviceI;
 
+import java.io.IOException;
 import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.infy.Small_Business_Finance_App.app.model.Employee;
 
@@ -20,5 +23,7 @@ public interface EmployeeServiceI
 	public Employee updateEmp(Employee emp, int id);
 
 	public void deleteEmp(int id);
+	
+	public Employee updateEmpPhoto(MultipartFile photo, int id) throws IOException;
 	
 }
