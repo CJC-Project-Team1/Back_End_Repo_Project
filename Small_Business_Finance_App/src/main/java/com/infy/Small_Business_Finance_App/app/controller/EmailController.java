@@ -3,6 +3,7 @@ package com.infy.Small_Business_Finance_App.app.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -12,7 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infy.Small_Business_Finance_App.app.model.Email;
 import com.infy.Small_Business_Finance_App.app.serviceI.EmailServiceI;
 
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/emailApi")
 public class EmailController 
