@@ -33,7 +33,7 @@ public class EmailServiceImpl implements EmailServiceI
 					+ "\n\n Congratulations!!"
 					+"\n We are pleased to approve your home equity loan application."+","
 					+"\n The loan amount is="+em.getLoanAmount()+","
-					+"\n The term is ="+em.getTenure()+",and the annual interest rate is ="+em.getIntRate()+"."
+					+"\n The term is ="+em.getTenure()+",and the annual interest rate is ="+em.getIntRate()+"%."
 					+"\n Here is the generated Sanctioned letter ,"
 					+"\n Please see the Attachment for details. "
 					+ "\n Please visit branch for any Query or contact Branch Manager ."

@@ -35,21 +35,21 @@ public class EnquiryController {
 	}
 	
 	@PostMapping(value = "/saveEnq",consumes = {"application/json","application/xml"} )
-	public ResponseEntity<EnquiryDto> saveEnquiry(@RequestBody EnquiryDto edto)
+	public ResponseEntity<EnquiryDto> saveEnquiry(@RequestBody Enquiry edto)
 	{
-		Enquiry enq=emap.INSTANCE.dtoToEnquiry(edto);
+//		Enquiry enq=emap.INSTANCE.dtoToEnquiry(edto);
 		System.out.println(edto.getPanCard());
-		Enquiry enqry=esi.saveEnquiry(enq);
+		Enquiry enqry=esi.saveEnquiry(edto);
 		EnquiryDto edt=emap.INSTANCE.enquiryToDto(enqry);
 		return new ResponseEntity<EnquiryDto>(edt,HttpStatus.CREATED);
 	}
 	
 	@GetMapping(value = "/getAllEnq",produces = {"application/json","application/xml"} )
-	public ResponseEntity<List<EnquiryDto>> getAll()
+	public ResponseEntity<List<Enquiry>> getAll()
 	{
 		List<Enquiry> enqList=esi.getAllEnquiry();
 		List<EnquiryDto> enqDtos= emap.INSTANCE.enquiriesToDtos(enqList);
-		return new ResponseEntity<List<EnquiryDto>>(enqDtos,HttpStatus.OK);
+		return new ResponseEntity<List<Enquiry>>(enqList,HttpStatus.OK);
 	}
 	
 	
@@ -75,6 +75,7 @@ public class EnquiryController {
 		
 		Enquiry enq=esi.updateEnquiry(id,e);
 		System.out.println(enq.getCustomerName());
+		System.out.println(enq.getEnquiryStatus());
 		EnquiryDto edto=emap.INSTANCE.enquiryToDto(enq);
 		
 		return new ResponseEntity<EnquiryDto>(edto,HttpStatus.OK);
