@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +19,7 @@ import com.infy.Small_Business_Finance_App.app.dto.AppliedLoanDto;
 import com.infy.Small_Business_Finance_App.app.model.AppliedLoan;
 import com.infy.Small_Business_Finance_App.app.serviceI.AppliedLoanMapper;
 import com.infy.Small_Business_Finance_App.app.serviceI.AppliedLoanServiceI;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/aplliedloanApi")
 public class AppliedLoanController 

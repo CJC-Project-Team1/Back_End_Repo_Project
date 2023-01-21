@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,7 @@ import com.infy.Small_Business_Finance_App.app.dto.SanctionedLoanDetailsDto;
 import com.infy.Small_Business_Finance_App.app.model.SanctionedLoanDetails;
 import com.infy.Small_Business_Finance_App.app.serviceI.SanctionedLoanDetailsMapper;
 import com.infy.Small_Business_Finance_App.app.serviceI.SanctionedLoanDetailsServiceI;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/sanLoanApi")
 public class SanctionedLoanDetailsController 

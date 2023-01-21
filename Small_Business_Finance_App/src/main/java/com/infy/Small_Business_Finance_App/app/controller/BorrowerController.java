@@ -35,11 +35,35 @@ public class BorrowerController
 	
 	BorrowerMapper bmap;
 	
-	@PostMapping(value = "/borrower")
-	public ResponseEntity<String> saveBorrower(@RequestBody Borrower b)
+	@PostMapping(value = "/borrower",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<BorrowerDto> saveBorrower(@RequestPart(value = "adharCard") MultipartFile adhar,
+			@RequestPart(value = "panCard") MultipartFile pan,
+			@RequestPart(value = "photo") MultipartFile photo,
+			@RequestPart(value = "bankStatement") MultipartFile statement,
+			@RequestPart(value = "addressProof") MultipartFile address,
+			@RequestPart(value = "balanceSheet") MultipartFile balancesheet,
+			@RequestPart(value = "gstCertificate") MultipartFile gst,
+			@RequestPart(value = "proprietaryDeed") MultipartFile deed,
+			@RequestPart(value = "borrower") String borrower)
 	{
+		ObjectMapper obj=new ObjectMapper();
+		try 
+		{
+			BorrowerDto bdto=obj.readValue(borrower, BorrowerDto.class);
+			Borrower b=bmap.INSTANCE.dtoToBorrower(bdto);
+			Borrower bo=new Borrower();
+			List<PreviousLoanDetails> list=b.getLoanHistory();
+			bo.getLoanHistory().addAll(list);
 			bsi.saveBorrower(b);
-			return new ResponseEntity<String>("Saved",HttpStatus.CREATED);
+			BorrowerDto bdt=bmap.INSTANCE.borrowerToDto(b);
+			return new ResponseEntity<BorrowerDto>(bdt,HttpStatus.CREATED);
+		} 
+		catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	@GetMapping(value = "/borrowers")
