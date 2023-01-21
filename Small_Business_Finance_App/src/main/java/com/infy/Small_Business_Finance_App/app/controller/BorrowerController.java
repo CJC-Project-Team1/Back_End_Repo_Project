@@ -35,15 +35,9 @@ public class BorrowerController
 	BorrowerServiceI bsi;
 	
 	BorrowerMapper bmap;
-	
-<<<<<<< HEAD
 	@PostMapping(value = "/borrower",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ResponseEntity<BorrowerDto> saveBorrower(@RequestPart(value = "adharCard") MultipartFile adhar,
-=======
-	@PostMapping(value = "/borrower" ,consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<String> saveBorrower(
 			@RequestPart(value = "adharCard") MultipartFile adhar,
->>>>>>> branch 'master' of https://github.com/CJC-Project-Team1/Back_End_Repo_Project.git
 			@RequestPart(value = "panCard") MultipartFile pan,
 			@RequestPart(value = "photo") MultipartFile photo,
 			@RequestPart(value = "bankStatement") MultipartFile statement,
@@ -53,16 +47,6 @@ public class BorrowerController
 			@RequestPart(value = "proprietaryDeed") MultipartFile deed,
 			@RequestPart(value = "borrower") String borrower)
 	{
-<<<<<<< HEAD
-		ObjectMapper obj=new ObjectMapper();
-		try 
-		{
-			BorrowerDto bdto=obj.readValue(borrower, BorrowerDto.class);
-			Borrower b=bmap.INSTANCE.dtoToBorrower(bdto);
-			Borrower bo=new Borrower();
-			List<PreviousLoanDetails> list=b.getLoanHistory();
-			bo.getLoanHistory().addAll(list);
-=======
 		ObjectMapper om= new ObjectMapper();
 		
 		try {
@@ -78,30 +62,15 @@ public class BorrowerController
 			b.getBorrowerDocuments().setProprietaryDeed(deed.getBytes());
 			System.out.println(b);
 			System.out.println("adhar card="+b.getBorrowerDocuments().getAdharCard());
->>>>>>> branch 'master' of https://github.com/CJC-Project-Team1/Back_End_Repo_Project.git
 			bsi.saveBorrower(b);
-<<<<<<< HEAD
-			BorrowerDto bdt=bmap.INSTANCE.borrowerToDto(b);
-			return new ResponseEntity<BorrowerDto>(bdt,HttpStatus.CREATED);
 		} 
 		catch (Exception e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
-=======
 			return new ResponseEntity<String>("Saved",HttpStatus.CREATED);
 		} 
-		catch (Exception e) {
-			
-			e.printStackTrace();
-		} 
-			
-		return null;
-			
->>>>>>> branch 'master' of https://github.com/CJC-Project-Team1/Back_End_Repo_Project.git
-	}
 	
 	@GetMapping(value = "/borrowers")
 	public ResponseEntity<List<Borrower>> getBorrower()

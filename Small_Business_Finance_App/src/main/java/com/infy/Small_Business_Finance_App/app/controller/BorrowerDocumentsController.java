@@ -22,13 +22,8 @@ import com.infy.Small_Business_Finance_App.app.dto.BorrowerDocumentsDto;
 import com.infy.Small_Business_Finance_App.app.model.BorrowerDocuments;
 import com.infy.Small_Business_Finance_App.app.serviceI.BorrowerDocumentsMapper;
 import com.infy.Small_Business_Finance_App.app.serviceI.BorrowerDocumentsServiceI;
-<<<<<<< HEAD
-@CrossOrigin("*")
-=======
 
 @CrossOrigin("*")
-
->>>>>>> branch 'master' of https://github.com/CJC-Project-Team1/Back_End_Repo_Project.git
 @RestController
 @RequestMapping(value = "/borrowerDocumentsApi")
 public class BorrowerDocumentsController

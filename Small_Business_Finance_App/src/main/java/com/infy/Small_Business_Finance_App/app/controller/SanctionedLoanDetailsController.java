@@ -18,10 +18,7 @@ import com.infy.Small_Business_Finance_App.app.dto.SanctionedLoanDetailsDto;
 import com.infy.Small_Business_Finance_App.app.model.SanctionedLoanDetails;
 import com.infy.Small_Business_Finance_App.app.serviceI.SanctionedLoanDetailsMapper;
 import com.infy.Small_Business_Finance_App.app.serviceI.SanctionedLoanDetailsServiceI;
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/CJC-Project-Team1/Back_End_Repo_Project.git
 @CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/sanLoanApi")

@@ -20,10 +20,7 @@ import com.infy.Small_Business_Finance_App.app.dto.BorrowerBankDetailsDto;
 import com.infy.Small_Business_Finance_App.app.model.BorrowerBankDetails;
 import com.infy.Small_Business_Finance_App.app.serviceI.BorrowerBankDetailsMapper;
 import com.infy.Small_Business_Finance_App.app.serviceI.BorrowerBankDetailsServiceI;
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/CJC-Project-Team1/Back_End_Repo_Project.git
 @CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/bankdetailsApi")
