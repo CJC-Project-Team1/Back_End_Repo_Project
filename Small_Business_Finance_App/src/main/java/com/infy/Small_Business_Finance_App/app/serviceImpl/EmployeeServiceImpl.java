@@ -1,10 +1,12 @@
 package com.infy.Small_Business_Finance_App.app.serviceImpl;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.infy.Small_Business_Finance_App.app.exception.ExceptionById;
 import com.infy.Small_Business_Finance_App.app.model.Employee;
@@ -59,7 +61,25 @@ public class EmployeeServiceImpl implements EmployeeServiceI
 		if(oe.isPresent())
 		{
 			emp.setEmpStatus(oe.get().getEmpStatus());
+			emp.setEmployeeId(id);
+			emp.setPhoto(oe.get().getPhoto());
 			Employee e = er.save(emp);
+			return e;
+		}
+		else
+		{
+			throw new ExceptionById("Sorry! No Employee is present with this ID.");
+		}
+	}
+	
+	public Employee updateEmpPhoto(MultipartFile photo, int id) throws IOException
+	{
+		Optional<Employee> oe = er.findById(id);
+		if(oe.isPresent())
+		{
+			Employee e = oe.get();
+			e.setPhoto(photo.getBytes());
+			er.save(e);
 			return e;
 		}
 		else

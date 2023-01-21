@@ -22,7 +22,13 @@ import com.infy.Small_Business_Finance_App.app.dto.BorrowerDocumentsDto;
 import com.infy.Small_Business_Finance_App.app.model.BorrowerDocuments;
 import com.infy.Small_Business_Finance_App.app.serviceI.BorrowerDocumentsMapper;
 import com.infy.Small_Business_Finance_App.app.serviceI.BorrowerDocumentsServiceI;
+<<<<<<< HEAD
 @CrossOrigin("*")
+=======
+
+@CrossOrigin("*")
+
+>>>>>>> branch 'master' of https://github.com/CJC-Project-Team1/Back_End_Repo_Project.git
 @RestController
 @RequestMapping(value = "/borrowerDocumentsApi")
 public class BorrowerDocumentsController
@@ -32,7 +38,9 @@ public class BorrowerDocumentsController
 	BorrowerDocumentsMapper bdmap;
 	
 	@PostMapping(value = "/borrowerDocument",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ResponseEntity<String> saveBorrowerDocuments(@RequestPart(value = "adhar") MultipartFile adhar,
+	public ResponseEntity<String> saveBorrowerDocuments(
+			@RequestPart(value = "documentId") String id, 
+			@RequestPart(value = "adhar") MultipartFile adhar,
 			@RequestPart(value = "pan") MultipartFile pan,
 			@RequestPart(value = "photo") MultipartFile photo,
 			@RequestPart(value = "bankStatement") MultipartFile bankStatement,

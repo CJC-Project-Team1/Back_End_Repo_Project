@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infy.Small_Business_Finance_App.app.dto.EmployeeDto;
 import com.infy.Small_Business_Finance_App.app.model.Employee;
@@ -79,14 +78,22 @@ public class EmployeeController
 		return new ResponseEntity<EmployeeDto>(edto, HttpStatus.OK);
 	}
 	
-	@PutMapping(value = "/updateEmp/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@PutMapping(value = "/updateEmpPhoto/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable("id") int id, 
-													@RequestPart(value = "photo") MultipartFile photo, 
+			@RequestPart(value = "photo") MultipartFile photo) throws Exception, JsonProcessingException
+	{
+
+		Employee e = esi.updateEmpPhoto(photo, id);
+		EmployeeDto edto = mapper.INSTANCE.employeeToDto(e);
+		return new ResponseEntity<EmployeeDto>(edto, HttpStatus.OK);
+	}
+
+	@PutMapping(value = "/updateEmp/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<EmployeeDto> updateEmployeePhoto(@PathVariable("id") int id, 
 													@RequestPart(value = "empdetails") String empdetails) throws Exception, JsonProcessingException
 	{
 		ObjectMapper om = new ObjectMapper();
 		EmployeeDto empdto = om.readValue(empdetails, EmployeeDto.class);
-		empdto.setPhoto(photo.getBytes());
 		Employee emp = mapper.INSTANCE.dtoToEmployee(empdto);
 		Employee e = esi.updateEmp(emp, id);
 		EmployeeDto edto = mapper.INSTANCE.employeeToDto(e);
@@ -96,10 +103,10 @@ public class EmployeeController
 	@DeleteMapping(value = "/deleteEmp/{id}")
 	public String deleteEmployeeById(@PathVariable("id") int id)
 	{
-		EmployeeDto edto = new EmployeeDto();
-		edto.setEmployeeId(id);
-		Employee emp = mapper.dtoToEmployee(edto); 
-		esi.deleteEmp(emp.getEmployeeId());
+//		EmployeeDto edto = new EmployeeDto();
+//		edto.setEmployeeId(id);
+//		Employee emp = mapper.dtoToEmployee(edto); 
+		esi.deleteEmp(id);
 		return "Deleted";
 	}
 }

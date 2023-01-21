@@ -24,6 +24,7 @@ public class EmployeeDto
 	private String contactNo;
 	private String emailId;
 	private String dob;
+	private String gender;
 	private String appointmentDate;
 	private String address;
 	private String username;

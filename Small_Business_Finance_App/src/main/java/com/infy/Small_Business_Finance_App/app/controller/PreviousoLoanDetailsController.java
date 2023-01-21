@@ -19,6 +19,10 @@ import com.infy.Small_Business_Finance_App.app.dto.PreviousLoanDetailsDto;
 import com.infy.Small_Business_Finance_App.app.model.PreviousLoanDetails;
 import com.infy.Small_Business_Finance_App.app.serviceI.PreviousoLoanDetailsMapper;
 import com.infy.Small_Business_Finance_App.app.serviceI.PreviousoLoanDetailsServiceI;
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/CJC-Project-Team1/Back_End_Repo_Project.git
 @CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/previousLoanDetailsApi")
