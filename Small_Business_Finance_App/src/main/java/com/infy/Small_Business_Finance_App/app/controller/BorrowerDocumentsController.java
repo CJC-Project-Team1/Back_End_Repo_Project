@@ -24,7 +24,6 @@ import com.infy.Small_Business_Finance_App.app.serviceI.BorrowerDocumentsMapper;
 import com.infy.Small_Business_Finance_App.app.serviceI.BorrowerDocumentsServiceI;
 
 @CrossOrigin("*")
-
 @RestController
 @RequestMapping(value = "/borrowerDocumentsApi")
 public class BorrowerDocumentsController

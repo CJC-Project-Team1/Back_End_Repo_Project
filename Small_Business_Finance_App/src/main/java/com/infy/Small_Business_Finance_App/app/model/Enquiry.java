@@ -28,5 +28,4 @@ public class Enquiry {
 	private Long contactNo;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Cibil cibil;
-
 }

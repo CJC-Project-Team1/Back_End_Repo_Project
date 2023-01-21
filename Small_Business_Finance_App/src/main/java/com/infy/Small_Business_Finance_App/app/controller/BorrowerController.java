@@ -35,8 +35,7 @@ public class BorrowerController
 	BorrowerServiceI bsi;
 	
 	BorrowerMapper bmap;
-	
-	@PostMapping(value = "/borrower" ,consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@PostMapping(value = "/borrower",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<String> saveBorrower(
 			@RequestPart(value = "adharCard") MultipartFile adhar,
 			@RequestPart(value = "panCard") MultipartFile pan,
@@ -64,16 +63,14 @@ public class BorrowerController
 			System.out.println(b);
 			System.out.println("adhar card="+b.getBorrowerDocuments().getAdharCard());
 			bsi.saveBorrower(b);
+		} 
+		catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 			return new ResponseEntity<String>("Saved",HttpStatus.CREATED);
 		} 
-		catch (Exception e) {
-			
-			e.printStackTrace();
-		} 
-			
-		return null;
-			
-	}
 	
 	@GetMapping(value = "/borrowers")
 	public ResponseEntity<List<Borrower>> getBorrower()
