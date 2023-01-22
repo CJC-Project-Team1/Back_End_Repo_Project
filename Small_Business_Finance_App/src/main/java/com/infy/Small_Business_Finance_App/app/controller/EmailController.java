@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,5 +45,13 @@ public class EmailController
 			return "can't send attachment mail.";
 		}
 		return "sent";
+	}
+	
+	@PostMapping(value = "/email")
+	public void email(@RequestBody Email mail)
+	{
+		System.out.println("to=="+mail.getTo());
+		mail.setFrom(from_mail);
+		emailS.sendEmail(mail);
 	}
 }

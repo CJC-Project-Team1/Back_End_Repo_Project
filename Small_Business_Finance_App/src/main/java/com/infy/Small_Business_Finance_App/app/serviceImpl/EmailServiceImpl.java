@@ -3,6 +3,7 @@ package com.infy.Small_Business_Finance_App.app.serviceImpl;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
@@ -48,6 +49,24 @@ public class EmailServiceImpl implements EmailServiceI
 		{
 			e.printStackTrace();
 		}
+	}
+
+
+
+	@Override
+	public void sendEmail(Email mail) {
+		SimpleMailMessage message=new SimpleMailMessage();
+		message.setTo(mail.getTo());
+		message.setFrom(mail.getFrom());
+		message.setSubject(mail.getSubject());
+		message.setText("\nDear "+mail.getBorrowerName()+"\nLoan Application No= "+mail.getApplicationNo()+","
+				+"\n We are sorry to inform you that your loan request has been rejected."
+				+"\n As your cibil score doesn't fall under requirements."
+				+ "\n Please visit branch for any Query or contact Branch Manager ."
+				+ "\n Thank You !"
+				+ "\n\n Regards,"
+				+ "\n MSME Loans");
+		jms.send(message);
 	}
 
 }

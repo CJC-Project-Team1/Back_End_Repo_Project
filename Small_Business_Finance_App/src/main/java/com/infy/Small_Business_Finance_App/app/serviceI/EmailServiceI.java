@@ -8,4 +8,6 @@ public interface EmailServiceI {
 
 	public void sendPartAttachmentMail(Email em, MultipartFile atchmnt);
 
+	public void sendEmail(Email mail);
+
 }
