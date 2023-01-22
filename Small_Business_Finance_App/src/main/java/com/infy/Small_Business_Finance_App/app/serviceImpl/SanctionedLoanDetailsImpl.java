@@ -55,10 +55,8 @@ public class SanctionedLoanDetailsImpl implements SanctionedLoanDetailsServiceI
 			SanctionedLoanDetails sL=os.get();
 			sL.setSanctionedLoanAmount(sLoan.getSanctionedLoanAmount());
 			sL.setSanctionedLoanTenure(sLoan.getSanctionedLoanTenure());
-			sL.setCustomerName(sLoan.getCustomerName());
-			sL.setCustomerId(sLoan.getCustomerId());
+			sL.setRateOfInterest(sLoan.getRateOfInterest());
 			sL.setMonthlyEmi(sLoan.getMonthlyEmi());
-			sL.setEmi(sLoan.getEmi());
 			
 			return sr.save(sL);
 		}
