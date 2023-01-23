@@ -12,7 +12,7 @@ public interface BorrowerServiceI {
 
 	public List<Borrower> getBorrower();
 
-	public void updateBorrower(Borrower b, int id);
+	public void updateBorrower(Borrower b);
 
 	public void deleteBorrower(int id);
 

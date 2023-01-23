@@ -87,38 +87,13 @@ public class BorrowerController
 	}
 	
 	
-	//UPdate API
-	@PutMapping(value = "/borrower/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ResponseEntity<String> updateBorrower(@RequestPart(value = "adharCard") MultipartFile adhar,
-			@RequestPart(value = "panCard") MultipartFile pan,
-			@RequestPart(value = "photo") MultipartFile photo,
-			@RequestPart(value = "bankStatement") MultipartFile statement,
-			@RequestPart(value = "addressProof") MultipartFile address,
-			@RequestPart(value = "balanceSheet") MultipartFile balancesheet,
-			@RequestPart(value = "gstCertificate") MultipartFile gst,
-			@RequestPart(value = "proprietaryDeed") MultipartFile deed,
-			@RequestPart(value = "borrower") String borrower,
-			@PathVariable int id)
-	{
-	ObjectMapper om= new ObjectMapper();
-		System.out.println("in borrower update");
-		try {
-			
-			Borrower b = om.readValue(borrower, Borrower.class);
-			b.getBorrowerDocuments().setAdharCard(adhar.getBytes());
-			b.getBorrowerDocuments().setPanCard(pan.getBytes());
-			b.getBorrowerDocuments().setPhoto(photo.getBytes());
-			b.getBorrowerDocuments().setBankStatement(statement.getBytes());
-			b.getBorrowerDocuments().setAddressProof(address.getBytes());
-			b.getBorrowerDocuments().setBalanceSheet(balancesheet.getBytes());
-			b.getBorrowerDocuments().setGstCertificate(gst.getBytes());
-			b.getBorrowerDocuments().setProprietaryDeed(deed.getBytes());
-			bsi.updateBorrower(b,id);
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-			return new ResponseEntity<String>("Updated",HttpStatus.OK);
-	} 
+	@PutMapping(value = "/update")
+	public String update(@RequestBody Borrower b) {
+		
+		System.out.println("in update borrower");
+		bsi.updateBorrower(b);
+		return "updated";
+	}
 	
 	@DeleteMapping(value = "/borrower/{id}")
 	public ResponseEntity<String> deleteBorrower(@PathVariable int id)

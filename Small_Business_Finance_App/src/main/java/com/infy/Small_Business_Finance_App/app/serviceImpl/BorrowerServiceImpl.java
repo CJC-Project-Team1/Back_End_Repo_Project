@@ -19,9 +19,7 @@ public class BorrowerServiceImpl implements BorrowerServiceI
 	@Override
 	public void saveBorrower(Borrower b)
 	{
-		System.out.println("*******************");
 		System.out.println(b.getBankDetails().getBankDetailsId());
-		System.out.println("*******************");
 		brepo.save(b);
 	}
 
@@ -32,13 +30,8 @@ public class BorrowerServiceImpl implements BorrowerServiceI
 	}
 
 	@Override
-	public void updateBorrower(Borrower b, int id) {
-		// TODO Auto-generated method stub
-		Optional<Borrower> ob=brepo.findById(id);
-		if(ob.isPresent())
-		{
+	public void updateBorrower(Borrower b) {
 			brepo.save(b);
-		}
 	}
 
 	@Override
