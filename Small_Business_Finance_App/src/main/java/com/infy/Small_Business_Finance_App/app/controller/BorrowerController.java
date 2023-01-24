@@ -52,6 +52,8 @@ public class BorrowerController
 		try {
 			
 			Borrower b = om.readValue(borrower, Borrower.class);
+			b.setApplicationStatus("Under review");
+			b.setDocumentStatus("Not varified");
 			b.getBorrowerDocuments().setAdharCard(adhar.getBytes());
 			b.getBorrowerDocuments().setPanCard(pan.getBytes());
 			b.getBorrowerDocuments().setPhoto(photo.getBytes());

@@ -27,6 +27,7 @@ public class Borrower
 	private String panNo;
 	private String address;
 	private String documentStatus;
+	private String applicationStatus;
 	private String gstNo;
 	@OneToOne(cascade = CascadeType.ALL)
 	private BorrowerBankDetails bankDetails;
