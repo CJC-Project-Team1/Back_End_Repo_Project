@@ -20,6 +20,7 @@ public class SanctionedLoanDetailsImpl implements SanctionedLoanDetailsServiceI
 	@Override
 	public SanctionedLoanDetails saveSanLoanDetails(SanctionedLoanDetails sLoan) 
 	{
+		System.out.println("ROI"+sLoan.getRateOfInterest());
 		return sr.save(sLoan);
 	}
 
