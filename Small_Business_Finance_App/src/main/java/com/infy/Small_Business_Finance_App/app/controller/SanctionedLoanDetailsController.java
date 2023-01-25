@@ -65,6 +65,8 @@ public class SanctionedLoanDetailsController
 		SanctionedLoanDetailsDto sDto=sLoanMap.INSTANCE.entityToDto(sLoan);
 		return new ResponseEntity<SanctionedLoanDetailsDto>(sDto,HttpStatus.OK);
 	}
+	
+	
 
 	@PutMapping(value = "updateSanLoan/{id}",consumes = {"application/json","application/xml"})
 	public ResponseEntity<SanctionedLoanDetailsDto> updateSanLoan(@RequestBody SanctionedLoanDetails sLaon,@PathVariable int id)

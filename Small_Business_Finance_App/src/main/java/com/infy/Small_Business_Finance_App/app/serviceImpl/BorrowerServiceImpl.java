@@ -53,4 +53,12 @@ public class BorrowerServiceImpl implements BorrowerServiceI
 	}
 	}
 
+	@Override
+	public List<Borrower> getBorrowerByStatus(String status) 
+	{
+		List<Borrower> BL = brepo.findByDocumentStatus(status);
+		
+		return BL;
+	}
+
 }

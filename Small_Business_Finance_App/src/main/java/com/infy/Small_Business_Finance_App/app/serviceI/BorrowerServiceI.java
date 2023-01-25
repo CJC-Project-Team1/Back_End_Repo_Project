@@ -18,4 +18,6 @@ public interface BorrowerServiceI {
 
 	public Borrower getBorrowerById(int id);
 
+	public List<Borrower> getBorrowerByStatus(String status);
+
 }

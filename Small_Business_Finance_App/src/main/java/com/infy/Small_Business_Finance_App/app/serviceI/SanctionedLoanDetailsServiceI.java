@@ -14,4 +14,5 @@ public interface SanctionedLoanDetailsServiceI {
 
 	public SanctionedLoanDetails updateSanLoanDetails(int id, SanctionedLoanDetails sLoan);
 
+
 }

@@ -35,50 +35,50 @@ public class EnquiryController {
 	}
 	
 	@PostMapping(value = "/saveEnq",consumes = {"application/json","application/xml"} )
-	public ResponseEntity<EnquiryDto> saveEnquiry(@RequestBody Enquiry edto)
+	public ResponseEntity<Enquiry> saveEnquiry(@RequestBody Enquiry edto)
 	{
 //		Enquiry enq=emap.INSTANCE.dtoToEnquiry(edto);
 		System.out.println(edto.getPanCard());
 		Enquiry enqry=esi.saveEnquiry(edto);
-		EnquiryDto edt=emap.INSTANCE.enquiryToDto(enqry);
-		return new ResponseEntity<EnquiryDto>(edt,HttpStatus.CREATED);
+		//EnquiryDto edt=emap.INSTANCE.enquiryToDto(enqry);
+		return new ResponseEntity<Enquiry>(enqry,HttpStatus.CREATED);
 	}
 	
 	@GetMapping(value = "/getAllEnq",produces = {"application/json","application/xml"} )
 	public ResponseEntity<List<Enquiry>> getAll()
 	{
 		List<Enquiry> enqList=esi.getAllEnquiry();
-		List<EnquiryDto> enqDtos= emap.INSTANCE.enquiriesToDtos(enqList);
+	//	List<EnquiryDto> enqDtos= emap.INSTANCE.enquiriesToDtos(enqList);
 		return new ResponseEntity<List<Enquiry>>(enqList,HttpStatus.OK);
 	}
 	
 	
 	@GetMapping(value = "/getEnqByStatus/{status}",produces = {"application/json","application/xml"} )
-	public ResponseEntity<List<EnquiryDto>> getByStatus(@PathVariable String status)
+	public ResponseEntity<List<Enquiry>> getByStatus(@PathVariable String status)
 	{
 		List<Enquiry> enqList=esi.getByStatus(status);
-		List<EnquiryDto> enqDtos= emap.INSTANCE.enquiriesToDtos(enqList);
-		return new ResponseEntity<List<EnquiryDto>>(enqDtos,HttpStatus.OK);
+	//	List<EnquiryDto> enqDtos= emap.INSTANCE.enquiriesToDtos(enqList);
+		return new ResponseEntity<List<Enquiry>>(enqList,HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/getEnqById/{id}",produces = {"application/json","application/xml"} )
-	public ResponseEntity<EnquiryDto> getById(@PathVariable int id)
+	public ResponseEntity<Enquiry> getById(@PathVariable int id)
 	{
 		Enquiry enq=esi.getEnquiryById(id);
-		EnquiryDto enqDto= emap.INSTANCE.enquiryToDto(enq);
-		return new ResponseEntity<EnquiryDto>(enqDto,HttpStatus.OK);
+		//EnquiryDto enqDto= emap.INSTANCE.enquiryToDto(enq);
+		return new ResponseEntity<Enquiry>(enq,HttpStatus.OK);
 	}
 	
 	@PutMapping(value = "/updateEnq/{id}",consumes = {"application/json","application/xml"})
-	public ResponseEntity<EnquiryDto> updateEnq(@RequestBody Enquiry e,@PathVariable int id)
+	public ResponseEntity<Enquiry> updateEnq(@RequestBody Enquiry e,@PathVariable int id)
 	{
 		
 		Enquiry enq=esi.updateEnquiry(id,e);
 		System.out.println(enq.getCustomerName());
 		System.out.println(enq.getEnquiryStatus());
-		EnquiryDto edto=emap.INSTANCE.enquiryToDto(enq);
+		//EnquiryDto edto=emap.INSTANCE.enquiryToDto(enq);
 		
-		return new ResponseEntity<EnquiryDto>(edto,HttpStatus.OK);
+		return new ResponseEntity<Enquiry>(enq,HttpStatus.OK);
 	}
 	
 	
