@@ -88,6 +88,12 @@ public class BorrowerController
 		return new ResponseEntity<Borrower>(b,HttpStatus.OK);
 	}
 	
+	@GetMapping(value = "/borrowers/{status}")
+	public ResponseEntity<List<Borrower>> getBorrowerByStatus(@PathVariable String status)
+	{
+		List<Borrower> BL=bsi.getBorrowerByStatus(status);
+		return new ResponseEntity<List<Borrower>>(BL,HttpStatus.OK);
+	}
 	
 	@PutMapping(value = "/update")
 	public String update(@RequestBody Borrower b) {
