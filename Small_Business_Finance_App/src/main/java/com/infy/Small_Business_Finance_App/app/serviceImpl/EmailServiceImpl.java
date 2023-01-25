@@ -51,7 +51,17 @@ public class EmailServiceImpl implements EmailServiceI
 		}
 	}
 
-
+	
+	@Override
+	public void sendDynamicEmail(Email mail)
+	{
+		SimpleMailMessage message=new SimpleMailMessage();
+		message.setTo(mail.getTo());
+		message.setFrom(mail.getFrom());
+		message.setSubject(mail.getSubject());
+		message.setText(mail.getText());
+		jms.send(message);
+	}
 
 	@Override
 	public void sendEmail(Email mail) {

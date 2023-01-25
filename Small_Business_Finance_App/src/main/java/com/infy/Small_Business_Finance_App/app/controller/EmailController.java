@@ -54,4 +54,13 @@ public class EmailController
 		mail.setFrom(from_mail);
 		emailS.sendEmail(mail);
 	}
+	
+	@PostMapping(value = "/dynamicEmail")
+	public void dynmEmail(@RequestBody Email mail)
+	{
+		System.out.println("to=="+mail.getTo());
+		System.out.println("text=="+mail.getText());
+		mail.setFrom(from_mail);
+		emailS.sendDynamicEmail(mail);
+	}
 }
