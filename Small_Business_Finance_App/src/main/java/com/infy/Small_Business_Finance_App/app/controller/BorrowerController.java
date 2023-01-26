@@ -1,5 +1,6 @@
 package com.infy.Small_Business_Finance_App.app.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,5 +109,25 @@ public class BorrowerController
 	{
 			bsi.deleteBorrower(id);
 			return new ResponseEntity<String>("Deleted",HttpStatus.NO_CONTENT);
-	} 
+	}
+	
+	@GetMapping(value = "/getbyAppStatus")
+	public ResponseEntity<List<Borrower>> getByAppStatus()
+	{
+		List<Borrower> list=bsi.getBorrower();
+		List<Borrower> blist = new ArrayList<Borrower>();
+		list.forEach(b->{
+			if(b.getApplicationStatus().equals("Under review"))
+			{
+				blist.add(b);
+			}
+		});
+		return new ResponseEntity<List<Borrower>>(blist,HttpStatus.OK);
+	}
 }
+
+
+
+
+
+
