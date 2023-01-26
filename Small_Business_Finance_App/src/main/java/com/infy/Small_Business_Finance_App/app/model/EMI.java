@@ -1,5 +1,7 @@
 package com.infy.Small_Business_Finance_App.app.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,8 +17,9 @@ public class EMI
 	private Integer emiId;
 	private String emiStatus;
 	private String emiTenure;
-	private Long emiAmount;
-	private String emiPaid;
-	private String emiRemaining;
+	private Double emiAmount;
+	private Integer emiCount;
+	private Double loanBal;
 	private Integer defautlerCount;
+	private Date date;
 }

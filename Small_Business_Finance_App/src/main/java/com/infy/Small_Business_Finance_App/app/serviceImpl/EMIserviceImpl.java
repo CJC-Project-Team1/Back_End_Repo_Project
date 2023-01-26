@@ -33,10 +33,11 @@ public class EMIserviceImpl implements EMIserviceI
 			em.setEmiAmount(emi.getEmiAmount());
 			em.setDefautlerCount(emi.getDefautlerCount());
 			em.setEmiId(emi.getEmiId());
-			em.setEmiPaid(emi.getEmiPaid());
-			em.setEmiRemaining(emi.getEmiRemaining());
+			em.setEmiCount(emi.getEmiCount());
+			em.setLoanBal(emi.getLoanBal());
 			em.setEmiStatus(emi.getEmiStatus());
 			em.setEmiTenure(emi.getEmiTenure());
+			em.setDate(emi.getDate());
 			em.setDefautlerCount(emi.getDefautlerCount());
 			return er.save(em);
 			
