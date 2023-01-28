@@ -1,5 +1,7 @@
 package com.infy.Small_Business_Finance_App.app.controller;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infy.Small_Business_Finance_App.app.dto.SanctionedLoanDetailsDto;
+import com.infy.Small_Business_Finance_App.app.model.EMI;
 import com.infy.Small_Business_Finance_App.app.model.SanctionedLoanDetails;
 import com.infy.Small_Business_Finance_App.app.serviceI.SanctionedLoanDetailsMapper;
 import com.infy.Small_Business_Finance_App.app.serviceI.SanctionedLoanDetailsServiceI;
@@ -61,6 +64,15 @@ public class SanctionedLoanDetailsController
 	public ResponseEntity<SanctionedLoanDetailsDto> getById(@PathVariable int id)
 	{
 		SanctionedLoanDetails sLoan = sLoanS.getSanLoanDetailsById(id);
+		Collections.sort(sLoan.getEmilist(), new Comparator<EMI>() {
+
+			@Override
+			public int compare(EMI e1, EMI e2) {
+				
+				return e1.getEmiId()-e2.getEmiId();
+			}
+			
+		});
 		SanctionedLoanDetailsDto sDto=sLoanMap.INSTANCE.entityToDto(sLoan);
 		return new ResponseEntity<SanctionedLoanDetailsDto>(sDto,HttpStatus.OK);
 	}

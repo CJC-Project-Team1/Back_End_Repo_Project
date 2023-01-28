@@ -1,5 +1,7 @@
 package com.infy.Small_Business_Finance_App.app.controller;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +45,15 @@ public class EMIcontroller {
 	public ResponseEntity<List<EMI>> getAllemi()
 	{
 		List<EMI> emiL=emiS.getAll();
+		Collections.sort(emiL, new Comparator<EMI>() {
+
+			@Override
+			public int compare(EMI e1, EMI e2) {
+				
+				return e1.getEmiId()-e2.getEmiId();
+			}
+			
+		});
 		return new ResponseEntity<List<EMI>>(emiL,HttpStatus.OK);
 	}
 	
