@@ -59,4 +59,11 @@ public class EMIserviceImpl implements EMIserviceI
 		return emiL;
 	}
 
+	@Override
+	public List<EMI> getEmiByDeaulter(Integer def) 
+	{
+		List<EMI> emiL = er.findByDefautlerCount(def);
+		return emiL;
+	}
+
 }

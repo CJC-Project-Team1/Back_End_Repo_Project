@@ -32,7 +32,7 @@ public class EmailServiceImpl implements EmailServiceI
 			mhelp.setSubject(em.getSubject());
 			mhelp.setText("\nDear "+em.getBorrowerName()+"\nLoan Application No= "+em.getApplicationNo()+","
 					+ "\n\n Congratulations!!"
-					+"\n We are pleased to approve your home equity loan application."+","
+					+"\n We are pleased to approve your loan application."+","
 					+"\n The loan amount is="+em.getLoanAmount()+"rs,"
 					+"\n The term is ="+em.getTenure()+"years,and the annual interest rate is ="+em.getIntRate()+"%."
 					+"\n Here is the generated Sanctioned letter ,"

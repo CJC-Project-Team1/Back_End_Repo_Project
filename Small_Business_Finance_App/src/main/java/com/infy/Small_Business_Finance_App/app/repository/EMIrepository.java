@@ -11,4 +11,5 @@ import com.infy.Small_Business_Finance_App.app.model.EMI;
 public interface EMIrepository extends JpaRepository<EMI, Integer>
 {
 	public List<EMI> findByEmiStatus(String emiStatus);
+	public List<EMI>  findByDefautlerCount(Integer def);
 }

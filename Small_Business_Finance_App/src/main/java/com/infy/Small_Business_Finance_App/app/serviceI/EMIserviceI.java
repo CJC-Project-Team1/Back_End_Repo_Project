@@ -14,4 +14,6 @@ public interface EMIserviceI {
 
 	public List<EMI> getEmiByStatus(String status);
 
+	public List<EMI> getEmiByDeaulter(Integer def);
+
 }

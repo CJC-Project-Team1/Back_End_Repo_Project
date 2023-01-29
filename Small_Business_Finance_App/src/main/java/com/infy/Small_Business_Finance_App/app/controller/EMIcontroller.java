@@ -41,6 +41,7 @@ public class EMIcontroller {
 		return new ResponseEntity<EMI>(e,HttpStatus.OK);
 	}
 	
+	
 	@GetMapping(value = "/getAllemi")
 	public ResponseEntity<List<EMI>> getAllemi()
 	{
@@ -61,6 +62,13 @@ public class EMIcontroller {
 	public ResponseEntity<List<EMI>> getEmiByStatus(@PathVariable String status)
 	{
 		List<EMI> emiL=emiS.getEmiByStatus(status);
+		return new ResponseEntity<List<EMI>>(emiL,HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/getAllemiDef/{def}")
+	public ResponseEntity<List<EMI>> getEmiByDeaulter(@PathVariable Integer def)
+	{
+		List<EMI> emiL=emiS.getEmiByDeaulter(def);
 		return new ResponseEntity<List<EMI>>(emiL,HttpStatus.OK);
 	}
 }
